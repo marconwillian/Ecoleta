@@ -5,7 +5,7 @@ module.exports = {
   development: {
     client: 'sqlite3',
     connection: {
-      filename: path.resolve(__dirname, 'src', 'database', 'datanase.sqlite')
+      filename: path.resolve(__dirname, 'src', 'database', 'dev.sqlite')
     },
     migrations: {
       directory: path.resolve(__dirname, 'src', 'database', 'migrations')
@@ -16,7 +16,7 @@ module.exports = {
   test: {
     client: 'sqlite3',
     connection: {
-      filename: path.resolve(__dirname, 'src', 'database', 'datanase.sqlite')
+      filename: path.resolve(__dirname, 'src', 'database', 'test.sqlite')
     },
     migrations: {
       directory: path.resolve(__dirname, 'src', 'database', 'migrations')
@@ -27,7 +27,7 @@ module.exports = {
   production: {
     client: 'sqlite3',
     connection: {
-      filename: path.resolve(__dirname, 'src', 'database', 'datanase.sqlite')
+      filename: path.resolve(__dirname, 'src', 'database', 'database.sqlite')
     },
     migrations: {
       directory: path.resolve(__dirname, 'src', 'database', 'migrations')
