@@ -37,7 +37,7 @@
 
 
   <!-- Markdown link & img dfn's -->
-  [logo-image]: https://i.imgur.com/ftyy51h.png
+  [logo-image]: http://1.bp.blogspot.com/-Uj2JOd1m39g/TuIGz33SFWI/AAAAAAAAGZ0/3a3wnTgcppw/s1600/RECICLAVEL+01.png
   [license-image]: https://img.shields.io/badge/License-MIT-yellow.svg
   [license-link]: https://github.com/marconwillian/Ecoleta_backend/blob/master/LICENSE
   [repo-frontend]: https://github.com/marconwillian/Ecoleta_frontend
