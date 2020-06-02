@@ -31,14 +31,15 @@
 
   ## :minidisc: Descrição
   Ele foi publicado em: https://ecoleta-backend.herokuapp.com/
+  
   ****
-  Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](https://github.com/marconwillian/Ecoleta_backend/blob/master/LICENSE) para mais detalhes.
+  Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE][license-link] para mais detalhes.
 
 
   <!-- Markdown link & img dfn's -->
   [logo-image]: https://i.imgur.com/ftyy51h.png
   [license-image]: https://img.shields.io/badge/License-MIT-yellow.svg
-  [license-link]: https://opensource.org/licenses/MIT
+  [license-link]: https://github.com/marconwillian/Ecoleta_backend/blob/master/LICENSE
   [repo-frontend]: https://github.com/marconwillian/Ecoleta_frontend
   [repo-mobile]: https://github.com/marconwillian/Ecoleta_mobile
   [npm-express]: https://www.npmjs.com/package/express
