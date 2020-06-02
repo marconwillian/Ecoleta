@@ -1,6 +1,6 @@
   ![Ecoleta][logo-image]
 
-  ## Projeto desenvolvido na na primeira nwl da RocketSeat.
+  ## Projeto desenvolvido na NLW #01 da RocketSeat.
   ---
   [![License: MIT][license-image]][license-link] <!-- [![Node.js CI](https://github.com/marconwillian/Ecoleta_backend/workflows/Node.js%20CI/badge.svg)](https://github.com/marconwillian/Ecoleta_backend/actions?query=workflow%3A%22Node.js+CI%22) -->
 
