@@ -2,6 +2,9 @@ import express from 'express';
 
 const app = express();
 
+app.use((req, res) => {
+    res.status(404).json({error: "Sorry can't find that!"})
+})
 app.get('/users', (req, res) => {
     res.status(200).json({list: 'user'})
 });
