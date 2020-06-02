@@ -1,4 +1,5 @@
 import express from 'express';
+import routes from './routes';
 
 const app = express();
 
@@ -30,40 +31,7 @@ app.use(express.json());
  * Rquest Body: Parametro para atualização/criação de informação
  */
 
-const users = [
-    'Marcon',
-    'Murillo',
-    'Valdir',
-    'Teste'
-];
-
-
-app.get('/users', (req, res) => {
-    let search = String(req.query.search);
-    
-    let filterUsers = search ? users.filter(user => user.includes(search)) : users;
-
-    return res.status(200).json(filterUsers)
-});
-
-app.post('/users', (req, res) => {
-    let data = req.body;
-
-    let user = {
-        name: data.name,
-        email: data.email
-    }
-
-    return res.status(200).json(user)
-});
-
-app.get('/users/:_id', (req, res) => {
-    let _id = Number(req.params._id);
-    let user = users[_id];
-    return res.status(200).json(user);
-});
-
-
+app.use(routes);
 
 app.use((req, res) => {
     res.status(404).json({error: "Sorry can't find that!"})
