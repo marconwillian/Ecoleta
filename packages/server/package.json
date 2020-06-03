@@ -10,7 +10,7 @@
     "knex:migrateknex:migrate": "npx knex --env production --knexfile knexfile.ts migrate:latest",
 
     "build-ts": "tsc",
-    
+    "postinstall": "npm run build-ts",
     "start": "npm run serve",
     "serve": "node src/server.js"
   },
