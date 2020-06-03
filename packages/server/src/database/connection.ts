@@ -8,9 +8,11 @@ switch (process.env.TYPERUN) {
         config = knexConfig.development;
         break;
     case 'test':
+        console.log("test");
         config = knexConfig.test;
         break;
     default:
+        console.log("pro");
         config = knexConfig.production;
         break;
 }

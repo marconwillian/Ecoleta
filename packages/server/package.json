@@ -4,12 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "cross-env TYPERUN=dev ts-node-dev --ignore-watch node_modules src/server.ts",
+    "dev": "cross-env TYPERUN=PRO ts-node-dev --ignore-watch node_modules src/server.ts",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "knex:seed": "npx knex --knexfile knexfile.ts seed:run ",
-    "knex:migrate": "npx knex --knexfile knexfile.ts migrate:latest"
+    "knex:seed": "npx knex --knexfile knexfile.ts seed:run --env production",
+    "knex:migrateknex:migrate": "npx knex --env production --knexfile knexfile.ts migrate:latest",
+    "build-ts": "tsc",
+    "postinstall": "npm run knex:migrate",
+    "start": "npm run serve",
+    "serve": "node src/server.js"
+
+
   },
   "keywords": [],
   "author": "",
@@ -19,6 +24,7 @@
     "cross-env": "^7.0.2",
     "express": "^4.17.1",
     "knex": "^0.21.1",
+    "pg": "^8.2.1",
     "sqlite3": "^4.2.0"
   },
   "devDependencies": {
