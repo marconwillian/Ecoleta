@@ -16,17 +16,14 @@
 
   - Main Libs
     - [![express (latest)](https://img.shields.io/npm/v/express/latest?label=Express&style=flat-square)][npm-express] | Usado para configurar as rotas e fazer a aplicação ouvir uma porta especifica (port:3333).
-    - [![celebrate (latest)](https://img.shields.io/npm/v/celebrate/latest?label=Celebrate&style=flat-square)][npm-celebrate] | Integração do Express com o Joi para validação de dados.
     - [![knex (latest)](https://img.shields.io/npm/v/knex/latest?label=knex.js&style=flat-square)][npm-knex] | Usado para itegrar a aplicação com o banco de dados, neste caso usado o Sqlite3
     - [![Sqlite3 (latest)](https://img.shields.io/npm/v/sqlite3/latest?label=Sqlite3&style=flat-square)][npm-sqlite] | Banco de dados rodando velo node.js
     - [![Cors (latest)](https://img.shields.io/npm/v/cors/latest?label=Cors&style=flat-square)][npm-cors] | Usado para proteger e altenticar a origem das requisições na api.
 
-  - Test Libs
-    - [![jest (latest)](https://img.shields.io/npm/v/jest/latest?label=Jest&style=flat-square)][npm-jest] | Usado para fazer os testes na aplicação.
-    - [![supertest (latest)](https://img.shields.io/npm/v/supertest/latest?label=SuperTest&style=flat-square)][npm-supertest] | Usado para fazer tste atravez da rota inteira.
-    - [![cross-env (latest)](https://img.shields.io/npm/v/cross-env/latest?label=Cross+Env&style=flat-square)][npm-cross-env] | Usado para definir process universais.
-
   - Dev Libs
+    - [![Typescript (latest)](https://img.shields.io/npm/v/typescript/latest?label=Typescript&style=flat-square)][npm-typescript] | Usado para proteger e altenticar a origem das requisições na api.
+    - [![cross-env (latest)](https://img.shields.io/npm/v/cross-env/latest?label=Cross+Env&style=flat-square)][npm-cross-env] | Usado para definir process.env universais.
+    - [![ts-node (latest)](https://img.shields.io/npm/v/ts-node/latest?label=ts+Node&style=flat-square)][npm-ts-node] | Usado para execultar os arquivos .ts sem precisar dar um bulding.
     
 
   ## :minidisc: Descrição
@@ -43,10 +40,9 @@
   [repo-frontend]: https://github.com/marconwillian/Ecoleta_frontend
   [repo-mobile]: https://github.com/marconwillian/Ecoleta_mobile
   [npm-express]: https://www.npmjs.com/package/express
-  [npm-celebrate]: https://www.npmjs.com/package/celebrate
+  [npm-typescript]: https://www.npmjs.com/package/celebrate
   [npm-knex]: https://www.npmjs.com/package/knex
   [npm-sqlite]: https://www.npmjs.com/package/sqlite3
   [npm-cors]: https://www.npmjs.com/package/cors
-  [npm-jest]: https://www.npmjs.com/package/jest
-  [npm-supertest]: https://www.npmjs.com/package/supertest
   [npm-cross-env]: https://www.npmjs.com/package/cross-env
+  [npm-ts-node]: https://www.npmjs.com/package/ts-node
