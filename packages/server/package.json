@@ -1,19 +1,21 @@
 {
   "name": "backend",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node src/server.js",
-    "dev": "npx ts-node-dev src/server.ts",
+    "dev": "cross-env TYPERUN=dev ts-node-dev --ignore-watch node_modules src/server.ts",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "knex:migrate": "npx knex migrate:latest --knexfile knexfile.ts"
+    "knex:seed": "npx knex --knexfile knexfile.ts seed:run ",
+    "knex:migrate": "npx knex --knexfile knexfile.ts migrate:latest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cross-env": "^7.0.2",
     "express": "^4.17.1",
     "knex": "^0.21.1",
     "sqlite3": "^4.2.0"
