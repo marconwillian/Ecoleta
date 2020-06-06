@@ -9,7 +9,7 @@ import { SvgUri } from 'react-native-svg';
 import * as Location from 'expo-location';
 import api from '../../services/api';
 
-interface ItemType {
+interface Item {
   id: number;
   title: string;
   imageUrl: string;
@@ -24,7 +24,7 @@ interface Points {
 }
 
 const Points = () => {
-  const [itemsList, setItemsList] = useState<ItemType[]>([]);
+  const [items, setItems] = useState<Item[]>([]);
   const [points, setPoints] = useState<Points[]>([]);
   const [selectedItems, setSelectedItems] = useState<number[]>([]);
 
@@ -55,18 +55,17 @@ const Points = () => {
   }, [])
 
   useEffect(() => {
-    api.get('items')
-    .then(response => {
-      setItemsList(response.data)
-    })
-  }, [])
+    api.get('items').then((response) => {
+      setItems(response.data);
+    });
+  }, []);
 
   useEffect(() => {
     api.get('points', {
       params: {
         city: 'Primavera do Leste',
         uf: 'MT',
-        items: [6]
+        items: [1, 2, 3, 4, 5, 6]
       }
     })
     .then(response => {
@@ -78,8 +77,8 @@ const Points = () => {
     navigation.goBack();
   }
 
-  function handleNavigateToDetail() {
-    navigation.navigate('Detail');
+  function handleNavigateToDetail(id: number) {
+    navigation.navigate('Detail', {point_id: id});
   }
 
   function handleSelectItem(id: number){
@@ -92,7 +91,11 @@ const Points = () => {
     } else {
         setSelectedItems([...selectedItems, id]);
     }
-}
+  }
+
+  if(items.length===0){
+    return null;
+  }
 
   return (
     <SafeAreaView style={{ flex:1 }}>
@@ -118,7 +121,7 @@ const Points = () => {
                 <Marker 
                 key={String(point.id)} 
                 style={styles.mapMarker}
-                onPress={handleNavigateToDetail}
+                onPress={() => handleNavigateToDetail(point.id)}
                 coordinate={{
                 latitude: point.latitude,
                 longitude: point.longitude
@@ -134,29 +137,27 @@ const Points = () => {
           ) }
         </View>
       </View>
-      <View style={styles.itemsContainer} >
-        <ScrollView 
+      
+      <View style={styles.itemsContainer}>
+        <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
-          contentContainerStyle={{paddingHorizontal: 25}}
+          contentContainerStyle={{ paddingHorizontal: 20 }}
         >
-
-          {itemsList.map(item => (
-            <TouchableOpacity 
-              key={String(item.id)} 
+          {items.map((item) => (
+            <TouchableOpacity
+              key={String(item.id)}
               style={[
                 styles.item,
-                selectedItems.includes(item.id) ? styles.selectedItem : {}
-              ]} 
+                selectedItems.includes(item.id) ? styles.selectedItem : {},
+              ]}
               onPress={() => handleSelectItem(item.id)}
               activeOpacity={0.6}
             >
-              <SvgUri width={42} height={42} uri={item.imageUrl}/>
+              <SvgUri width={42} height={42} uri={item.imageUrl} />
               <Text style={styles.itemTitle}>{item.title}</Text>
             </TouchableOpacity>
           ))}
-
-
         </ScrollView>
       </View>
     </ SafeAreaView>
