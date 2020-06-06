@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import routes from './routes';
+import { errors } from 'celebrate';
 
 const app = express();
 
@@ -35,6 +36,7 @@ app.use(express.json());
 
 app.use(routes);
 
+app.use(errors());
 app.use((req, res) => {
     res.status(404).json({error: "Sorry can't find that!"})
 })
