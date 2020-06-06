@@ -32,7 +32,7 @@ const Detail = () => {
 
       <View style={styles.footer}>
         <RectButton style={styles.button} onPress={() => {}}>
-          <FontAwesome name="whatasapp" size={20} color="#FFF" />
+          <FontAwesome name="whatsapp" size={20} color="#FFF" />
           <Text style={styles.buttonText}>Whatasapp</Text>
         </RectButton>
 
