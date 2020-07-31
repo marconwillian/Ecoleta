@@ -34,8 +34,9 @@
   [logo-image]: https://user-images.githubusercontent.com/34342635/83749237-c663d700-a639-11ea-9ac8-64b25f99efb1.png
   [license-image]: https://img.shields.io/badge/License-MIT-yellow.svg
   [license-link]: https://github.com/marconwillian/Ecoleta_backend/blob/master/LICENSE
-  [repo-backend]: https://github.com/marconwillian/Ecoleta_backend
-  [repo-mobile]: https://github.com/marconwillian/Ecoleta_mobile
+  [repo-backend]: /packages/server
+  [repo-frontend]: /packages/client
+  [repo-mobile]: /packages/mobile
   [npm-react]: https://www.npmjs.com/package/react
   [npm-react-dom]: https://www.npmjs.com/package/npm-react-dom
   [npm-react-icons]: https://www.npmjs.com/package/react-icons
