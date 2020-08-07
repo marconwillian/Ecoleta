@@ -27,7 +27,7 @@
     
 
   ## :minidisc: Descrição
-  Ele foi publicado em: https://ecoleta-backend.herokuapp.com/
+  Ele foi publicado em: https://server.ecoleta.marconwillian.dev/
   
   ****
   Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE][license-link] para mais detalhes.

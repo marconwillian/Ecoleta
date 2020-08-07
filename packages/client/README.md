@@ -24,7 +24,7 @@
     
 
   ## :minidisc: Descrição
-  Ele foi publicado em: https://ecoleta-frontend.now.sh/
+  Ele foi publicado em: https://ecoleta.marconwillian.dev/
   
   ****
   Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE][license-link] para mais detalhes.
