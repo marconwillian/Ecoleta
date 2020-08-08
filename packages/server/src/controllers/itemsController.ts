@@ -9,7 +9,7 @@ class ItemsController {
             return {
                 id: item.id,
                 title: item.title,
-                imageUrl: `https://server.ecoleta.marconwillian.dev/uploads/${item.image}`
+                imageUrl: `https://server-ecoleta.marconwillian.dev/uploads/${item.image}`
             }
         })
 
