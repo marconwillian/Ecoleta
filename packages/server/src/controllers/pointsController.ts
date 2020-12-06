@@ -11,8 +11,8 @@ class PointsController {
             .map(item => Number(item.trim()));
 
         const points = await knex('points')
-            .join('pint_items', 'points.id', '=', 'pint_items.point_id')
-            .whereIn('pint_items.item_id', pasedItems)
+            .join('point_items', 'points.id', '=', 'point_items.point_id')
+            .whereIn('point_items.item_id', pasedItems)
             .where('city', String(city))
             .where('uf', String(uf))
             .distinct()
@@ -39,8 +39,8 @@ class PointsController {
         }
 
         const items = await knex('items')
-            .join('pint_items', 'items.id', '=', 'pint_items.item_id')
-            .where('pint_items.point_id', _id)
+            .join('point_items', 'items.id', '=', 'point_items.item_id')
+            .where('point_items.point_id', _id)
             .select('items.title');
 
 
@@ -92,7 +92,7 @@ class PointsController {
             }
         })
     
-        await trx('pint_items').insert(pointItems);
+        await trx('point_items').insert(pointItems);
     
         await trx.commit();
 

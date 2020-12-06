@@ -1,7 +1,7 @@
 import Knex from 'knex';
 
 export async function up(knek: Knex) {
-    return knek.schema.createTable('pint_items', table => {
+    return knek.schema.createTable('point_items', table => {
         table.increments('id').primary();
 
 
@@ -14,5 +14,5 @@ export async function up(knek: Knex) {
 }
 
 export async function down(knex: Knex) {
-    return knex.schema.dropTable('pint_items');
+    return knex.schema.dropTable('point_items');
 }

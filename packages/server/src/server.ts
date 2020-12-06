@@ -45,7 +45,7 @@ app.use((req, res) => {
     res.status(404).json({error: "Sorry can't find that!"})
 })
 
-const port = process.env.PORT || 3333;
+const port = 3000;
 
 app.listen(port)
 console.log(`Start on port :${port}`)
