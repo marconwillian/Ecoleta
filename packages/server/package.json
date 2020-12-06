@@ -1,6 +1,6 @@
 {
   "name": "@ecoleta/server",
-  "version": "0.1.12",
+  "version": "0.2.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,8 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "knex:seed": "npx knex --knexfile knexfile.ts seed:run --env production",
     "knex:migrateknex:migrate": "npx knex --env production --knexfile knexfile.ts migrate:latest",
-    "bbbuild-ts": "tsc",
-    "bbpostinstall": "npm run build-ts",
+    "build": "tsc",
     "start": "npm run serve",
     "serve": "node src/server.js"
   },
