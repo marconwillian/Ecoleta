@@ -1,13 +1,13 @@
 {
   "expo": {
     "name": "Ecoleta",
-    "slug": "ecoleta",
+    "slug": "ecoleta-dev",
     "platforms": [
       "ios",
       "android",
       "web"
     ],
-    "version": "1.0.0",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -23,7 +23,12 @@
     ],
     "android": {
       "package": "dev.mh4sh.ecoleta",
-      "versionCode": 1
+      "versionCode": 3,
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAChFwGtRrkhieprwxQzGgjidGLhsFE-U4"
+        }
+      }
     }
   }
 }
