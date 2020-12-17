@@ -5,6 +5,7 @@ class ItemsController {
     async index(req: Request, res: Response){
         const items = await knex('items').select('*');
         const host = req.headers.host;
+        
 
         const serializedItems = items.map(item => {
             return {
