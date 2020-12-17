@@ -9,6 +9,7 @@ declare global {
             DB_DATABASE: string;
             DB_USER: string;
             DB_PASSWORD: string;
+            HOST: string;
         }
     }
 }
