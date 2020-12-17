@@ -1,13 +1,13 @@
 {
   "name": "@ecoleta/server",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --ignore-watch node_modules src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "knex:seed": "npx knex --knexfile knexfile.ts seed:run --env production",
-    "knex:migrateknex:migrate": "npx knex --env production --knexfile knexfile.ts migrate:latest",
+    "knex:seed": "npx knex --knexfile ./src/config/knexfile.ts seed:run --env production",
+    "knex:migrateknex:migrate": "npx knex --env production --knexfile ./src/config/knexfile.ts migrate:latest",
     "build": "tsc",
     "start": "npm run serve",
     "serve": "node src/server.js"

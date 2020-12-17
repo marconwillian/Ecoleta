@@ -4,13 +4,13 @@ RUN mkdir -p /home/node/ecoleta/node_modules && mkdir -p /home/node/ecoleta/dist
 
 WORKDIR /home/node/ecoleta
 
-COPY --chown=node:node ./packages/server/package.json ./packages/server/yarn.* ./
+COPY --chown=node:node ./server/package.json ./server/yarn.* ./
 
 USER node
 
 RUN yarn
 
-COPY --chown=node:node ./packages/server/ .
+COPY --chown=node:node ./server/ .
 
 RUN yarn build
 

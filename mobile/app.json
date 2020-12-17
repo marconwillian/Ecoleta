@@ -1,19 +1,19 @@
 {
   "expo": {
-    "name": "mobile",
-    "slug": "mobile",
+    "name": "Ecoleta",
+    "slug": "ecoleta-dev",
     "platforms": [
       "ios",
       "android",
       "web"
     ],
-    "version": "1.0.0",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#34cb79"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -21,8 +21,14 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "ios": {
-      "supportsTablet": true
+    "android": {
+      "package": "dev.mh4sh.ecoleta",
+      "versionCode": 3,
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAChFwGtRrkhieprwxQzGgjidGLhsFE-U4"
+        }
+      }
     }
   }
 }

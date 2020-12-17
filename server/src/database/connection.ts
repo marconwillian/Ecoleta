@@ -1,8 +1,8 @@
 import knex from 'knex';
-import knexConfig from '../../knexfileConnection';
+import knexConfig from '../config/knexfileConnection';
 let config: Object = {};
 
-config = knexConfig[process.env.NODE_ENV];
+config = knexConfig['production'];
 
 const connection = knex(config);
 
