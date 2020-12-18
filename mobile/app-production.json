@@ -1,19 +1,19 @@
 {
   "expo": {
-    "name": "Ecoleta Dev",
-    "slug": "ecoleta-development",
+    "name": "Ecoleta",
+    "slug": "ecoleta",
     "platforms": [
       "ios",
       "android",
       "web"
     ],
-    "version": "1.0.7-dev",
+    "version": "1.0.5",
     "orientation": "portrait",
-    "icon": "./assets/icon-development.png",
+    "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#414141"
+      "backgroundColor": "#34cb79"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -23,7 +23,7 @@
     ],
     "android": {
       "package": "dev.mh4sh.ecoleta",
-      "versionCode": 7,
+      "versionCode": 6,
       "config": {
         "googleMaps": {
           "apiKey": "AIzaSyAChFwGtRrkhieprwxQzGgjidGLhsFE-U4"
