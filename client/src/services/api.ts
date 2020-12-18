@@ -1,10 +1,7 @@
 import axios from 'axios';
 
-
-
 const api = axios.create({
-    baseURL: 'https://server-ecoleta.marconwillian.dev'
+    baseURL: '`END_POINT`'
 });
-
 
 export default api;
