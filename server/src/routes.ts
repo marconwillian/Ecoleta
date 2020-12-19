@@ -22,6 +22,8 @@ routes.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads')))
 
 routes.get('/items', itemsController.index);
 routes.get('/points', pointsController.index);
+routes.get('/points/states', pointsController.states);
+routes.get('/points/states/:_uf/cities', pointsController.cities);
 routes.get('/points/:_id', pointsController.show);
 routes.post('/points',
     upload.single('image'),
