@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 /**
- * Rota: Endereço completo da requisição
+ * Rota: Endereço completo da requisição 
  * Recurso: Qual entidade estamos acessando do sistema
  */
 
