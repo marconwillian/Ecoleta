@@ -98,6 +98,7 @@ const CreatePoint = () => {
     function handleSelectUf(event: ChangeEvent<HTMLSelectElement>) {
         const uf = event.target.value;
         setSelectedCity('loading');
+        setCities([]);
         setSelectedUf(uf);
     }
 
