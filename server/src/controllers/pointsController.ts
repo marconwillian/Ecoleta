@@ -2,8 +2,8 @@ import {Request, Response} from 'express';
 import knex from './../database/connection';
 
 class PointsController {
-    async index(req: Request, res: Response){
-        const {city, uf, items} = req.query;
+    async index(request: Request, response: Response){
+        const {city, uf, items} = request.query;
 
 
         const pasedItems = String(items)
@@ -26,16 +26,16 @@ class PointsController {
             }
         })
 
-        return res.status(200).json(serializedPoints);
+        return response.status(200).json(serializedPoints);
     }
 
-    async show(req: Request, res: Response){
-        const { _id } = req.params;
+    async show(request: Request, response: Response){
+        const { _id } = request.params;
         
         const point = await knex('points').where('id', _id).first();
 
         if(!point) {
-            return res.status(400).json({message: 'Point not found.'})
+            return response.status(400).json({message: 'Point not found.'})
         }
 
         const items = await knex('items')
@@ -50,10 +50,10 @@ class PointsController {
             }
 
         
-        return res.status(200).json({point: serializedPoint, items});
+        return response.status(200).json({point: serializedPoint, items});
     }
 
-    async create(req: Request, res: Response){
+    async create(request: Request, response: Response){
         const {
             name,
             email,
@@ -63,12 +63,12 @@ class PointsController {
             city,
             uf,
             items
-        } = req.body;
+        } = request.body;
     
         const trx = await knex.transaction();
 
         const point = {
-            image: req.file.filename,
+            image: request.file.filename,
             name,
             email,
             whatsapp,
@@ -96,10 +96,24 @@ class PointsController {
     
         await trx.commit();
 
-        return res.status(200).json({
+        return response.status(200).json({
             id:  point_id,
             ...point
         })
+    }
+
+    async states(request: Request, response: Response){
+      const ufs = await knex('points').column('uf').groupBy('uf');
+
+      return response.status(200).json(ufs);
+    }
+
+    async cities(request: Request, response: Response){
+      const { _uf } = request.params;
+      
+      const cities = await knex('points').column({name: 'city'}).where('uf', _uf).groupBy('city');
+
+      return response.status(200).json({uf: _uf, cities});
     }
 }
 
