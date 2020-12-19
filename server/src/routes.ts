@@ -10,7 +10,7 @@ import knex from './database/connection';
 import PointsController from './controllers/pointsController';
 import ItemsController from './controllers/itemsController';
 
-// index, show, create, update, delete - Teste
+// index, show, create, update, delete
 
 const routes = express.Router();
 const upload = multer(multerConfig);
