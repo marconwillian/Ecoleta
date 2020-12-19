@@ -43,11 +43,12 @@ const CreatePoint = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        whatsapp: ''
+        whatsapp: '',
+        whatsappFormatted: ''
     })
 
-    const [selectedUf, setSelectedUf] = useState<string>('0');
-    const [selectedCity, setSelectedCity] = useState<string>('0');
+    const [selectedUf, setSelectedUf] = useState<string>('');
+    const [selectedCity, setSelectedCity] = useState<string>('');
     const [selectedItems, setSelectedItems] = useState<number[]>([]);
     const [selectedPosition, setSelectedPosition] = useState<[number, number]>([0, 0]);
     const [selectedFile, setSelectedFile] = useState<File>();
@@ -82,19 +83,22 @@ const CreatePoint = () => {
     }, [])
 
     useEffect(() => {
-        if(selectedUf==='0')
+        if(selectedUf==='')
             return;
         
         axios.get<CITYIBGEResponse[]>(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${selectedUf}/municipios`)
             .then(response => {
                 const cityNames = response.data.map(city => city.nome);
                 setCities(cityNames);
+                setSelectedCity('');
             })
 
     }, [selectedUf]);
 
     function handleSelectUf(event: ChangeEvent<HTMLSelectElement>) {
         const uf = event.target.value;
+        setSelectedCity('loading');
+        setCities([]);
         setSelectedUf(uf);
     }
 
@@ -111,6 +115,24 @@ const CreatePoint = () => {
     function handleInputChange(event: ChangeEvent<HTMLInputElement>){
         const {name, value} = event.target;
         setFormData({...formData, [name]: value})
+    }
+
+    function handlePhone(event: ChangeEvent<HTMLInputElement>){
+      const {value: phone} = event.target;
+
+      const numberOnly = phone.replace(/\D/gim, '');
+      let newPhone = '';
+      if(numberOnly.length===0){
+        newPhone = ``;
+      } else if(numberOnly.length<3){
+        newPhone = `(${numberOnly.substring(0,2)}`;
+      } else if(numberOnly.length>=3 && numberOnly.length<8){
+        newPhone = `(${numberOnly.substring(0,2)}) ${numberOnly.substring(2,7)}`;
+      } else {
+        newPhone = `(${numberOnly.substring(0,2)}) ${numberOnly.substring(2,7)}-${numberOnly.substring(7,11)}`;
+      }
+
+      setFormData({...formData, ['whatsapp']: newPhone.replace(/\D/gim, ''), ['whatsappFormatted']: newPhone})
     }
 
     function handleSelectItem(id: number){
@@ -179,7 +201,7 @@ const CreatePoint = () => {
                         <input 
                             type="text" 
                             name="name" 
-                            id="name"
+                            value={formData.name}
                             onChange={handleInputChange}
                         />
                     </div>
@@ -189,17 +211,17 @@ const CreatePoint = () => {
                             <input 
                                 type="email" 
                                 name="email" 
-                                id="email"
+                                value={formData.email}
                                 onChange={handleInputChange}
                             />
                         </div>
                         <div className="field">
-                            <label htmlFor="whatsapp">Whatsapp</label>
+                            <label htmlFor="whatsappFormatted">Whatsapp</label>
                             <input 
                                 type="text" 
-                                name="whatsapp" 
-                                id="whatsapp"
-                                onChange={handleInputChange}
+                                name="whatsappFormatted" 
+                                value={formData.whatsappFormatted}
+                                onChange={handlePhone}
                             />
                         </div>
                     </div>
@@ -207,7 +229,7 @@ const CreatePoint = () => {
                 <fieldset>
                     <legend>
                         <h2>Endereço</h2>
-                        <span>Selecioneo endereço no mapa</span>
+                        <span>Selecione o endereço no mapa</span>
                     </legend>
 
                     <Map center={initialPosition} zoom={15} onClick={handleMapClick}>
@@ -222,7 +244,7 @@ const CreatePoint = () => {
                         <div className="field">
                             <label htmlFor="uf">Estado (UF)</label>
                             <select name="uf" id="uf" value={selectedUf} onChange={handleSelectUf}>
-                                <option value="0">Selecione uma UF</option>
+                                <option value="" disabled hidden>Selecione uma UF</option>
                                 {ufs.map(uf => (
                                     <option key={uf.name} value={uf.name}>{uf.fullName}</option>
                                 ))}
@@ -231,7 +253,8 @@ const CreatePoint = () => {
                         <div className="field">
                             <label htmlFor="city">Cidade</label>
                             <select name="city" id="city" value={selectedCity} onChange={handleSelectCity}>
-                                <option value="0">Selecione uma Cidade</option>
+                                <option value="" disabled hidden>Selecione uma Cidade</option>
+                                <option value="loading" disabled hidden>Carregando...</option>
                                 {cities.map(city => (
                                     <option key={city} value={city}>{city}</option>
                                 ))}
