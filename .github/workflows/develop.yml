@@ -21,7 +21,7 @@ jobs:
         run: docker login -u ${{ secrets.DOCKER_USER }} 
              -p ${{ secrets.DOCKER_PASS }}
       - name: Open folder of package
-        run: cd ./server/
+        run: cd server/
       - name: Build Docker image
         run: docker build -t $REPO:develop -t $REPO:${GITHUB_SHA::8} .
       - name: Publish Docker image
