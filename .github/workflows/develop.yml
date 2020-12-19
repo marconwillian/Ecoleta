@@ -21,7 +21,7 @@ jobs:
         run: docker login -u ${{ secrets.DOCKER_USER }} 
              -p ${{ secrets.DOCKER_PASS }}
       - name: Build Docker image
-        run: docker build -t $REPO:develop -t ./server/
+        run: docker build -t $REPO:develop ./server/
       - name: Publish Docker image
         run: docker push $REPO
 
