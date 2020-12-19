@@ -6,13 +6,13 @@ RUN mkdir -p /home/node/ecoleta/node_modules && mkdir -p /home/node/ecoleta/dist
 
 WORKDIR /home/node/ecoleta
 
-COPY --chown=node:node ./server/package.json ./server/yarn.* ./
+COPY --chown=node:node ./package.json ./yarn.* ./
 
 USER node
 
 RUN yarn
 
-COPY --chown=node:node ./server/ .
+COPY --chown=node:node ./ .
 
 RUN yarn build
 
