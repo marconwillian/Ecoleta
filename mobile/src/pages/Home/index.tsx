@@ -31,7 +31,6 @@ const Home = () => {
 
   useEffect(() => {
     setUfs([]);
-    setCity('loading');
     api.get<States[]>('points/states')
         .then(response => {
             const ufInitials = response.data.map(state => { 
@@ -43,11 +42,13 @@ const Home = () => {
   }, [])
 
   useEffect(() => {
+    setCity('loading');
     api.get<Cities>(`points/states/${uf}/cities`)
         .then(response => {
             const citiesSelected = response.data.cities.map(state => { 
                 return state.name
             })
+            setCity('0');
             setCities(citiesSelected);
         })
   }, [uf])
@@ -81,7 +82,7 @@ const Home = () => {
             }>
               <Picker.Item label="Selecione seu Estado" value="0"/>
               { ufs.map(uf => (
-                  <Picker.Item label={uf} value={uf}/>
+                  <Picker.Item key={uf} label={uf} value={uf}/>
               ))}
             </Picker>
           </View>
@@ -90,7 +91,7 @@ const Home = () => {
             style={{...styles.inputView}}
           >
             <Picker
-              style={{color: city === '0' ? "#949494" : "#464646" ,...styles.input}}
+              style={{color: city === "0" || city === "loading" ? "#949494" : "#464646" ,...styles.input}}
               selectedValue={city}
               enabled={cities.length!==0}
               onValueChange={(itemValue, itemIndex) => {
@@ -100,7 +101,7 @@ const Home = () => {
               <Picker.Item label="Selecione sua Cidade" value="0" />
               { city==="loading" && <Picker.Item label="carregando.." value="loading" /> }
               { cities.map(city => (
-                  <Picker.Item label={city} value={city}/>
+                  <Picker.Item key={city} label={city} value={city}/>
               ))}
             </Picker>
           </View>
