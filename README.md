@@ -34,7 +34,7 @@
 
 
   <!-- Markdown link & img dfn's -->
-  [logo-image]: https://user-images.githubusercontent.com/34342635/83749237-c663d700-a639-11ea-9ac8-64b25f99efb1.png
+  [logo-image]: /assets/green.png
   [license-image]: https://img.shields.io/badge/License-MIT-yellow.svg
   [license-link]: https://github.com/marconwillian/Ecoleta_backend/blob/master/LICENSE
   [repo-backend]: /packages/server
