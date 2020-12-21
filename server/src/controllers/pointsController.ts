@@ -1,9 +1,16 @@
 import {Request, Response} from 'express';
 import knex from './../database/connection';
+import Multer from 'multer';
+
+interface RequestUpload extends Request {
+    file: Express.MulterS3.File
+}
+
 
 class PointsController {
     async index(request: Request, response: Response){
         const {city, uf, items} = request.query;
+        const bucketEndPoint = process.env.BUCKET_ENDPOINT;
 
 
         const pasedItems = String(items)
@@ -22,7 +29,7 @@ class PointsController {
         const serializedPoints = points.map(point => {
             return {
                 ...point,
-                imageUrl: `https://server-ecoleta.marconwillian.dev/uploads/${point.image}`
+                imageUrl: `${bucketEndPoint}/${point.image}`
             }
         })
 
@@ -31,6 +38,7 @@ class PointsController {
 
     async show(request: Request, response: Response){
         const { _id } = request.params;
+        const bucketEndPoint = process.env.BUCKET_ENDPOINT;
         
         const point = await knex('points').where('id', _id).first();
 
@@ -46,14 +54,14 @@ class PointsController {
 
             const serializedPoint = {
                 ...point,
-                imageUrl: `https://server-ecoleta.marconwillian.dev/uploads/${point.image}`
+                imageUrl: `${bucketEndPoint}/${point.image}`
             }
 
         
         return response.status(200).json({point: serializedPoint, items});
     }
 
-    async create(request: Request, response: Response){
+    async create(request: RequestUpload | Request, response: Response){
         const {
             name,
             email,
@@ -67,8 +75,10 @@ class PointsController {
     
         const trx = await knex.transaction();
 
+        const fileUploaded = request.file as Express.MulterS3.File;
+
         const point = {
-            image: request.file.filename,
+            image: fileUploaded.key,
             name,
             email,
             whatsapp,
