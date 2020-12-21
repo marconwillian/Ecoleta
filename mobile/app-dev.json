@@ -22,7 +22,7 @@
       "**/*"
     ],
     "android": {
-      "package": "dev.mh4sh.ecoleta",
+      "package": "dev.mh4sh.ecoleta.develop",
       "versionCode": 7,
       "config": {
         "googleMaps": {

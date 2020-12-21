@@ -86,7 +86,7 @@ const Detail = () => {
 
         <RectButton style={styles.button} onPress={handleComposerMail}>
           <Icon name="mail" size={20} color="#FFF" />
-          <Text style={styles.buttonText}>Whatasapp</Text>
+          <Text style={styles.buttonText}>Email</Text>
         </RectButton>
       </View>
     </>
