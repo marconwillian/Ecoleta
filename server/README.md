@@ -2,8 +2,8 @@
 
   ## Projeto desenvolvido na NLW #01 da RocketSeat.
   ---
-  [![License: MIT][license-image]][license-link]
-  ![Deploy Develop - Test, Build & Redeploy](https://github.com/marconwillian/Ecoleta/workflows/Deploy%20Develop%20-%20Test,%20Build%20&%20Redeploy/badge.svg?branch=develop)
+  [![License: MIT][license-image]][license-link]<br>
+  ![Deploy Develop - Test, Build & Redeploy](https://github.com/marconwillian/Ecoleta/workflows/Deploy%20Develop%20-%20Test,%20Build%20&%20Redeploy/badge.svg?branch=develop)<br>
   ![Deploy - Test, Build & Redeploy](https://github.com/marconwillian/Ecoleta/workflows/Deploy%20-%20Test,%20Build%20&%20Redeploy/badge.svg?branch=main)
 
   Esse projeto foi feito com a intensão de platicar meus conhecimentos na stack do JavaScript usando o superset **typescript**.
@@ -29,8 +29,9 @@
     
 
   ## :minidisc: Descrição
-  Ele foi publicado em: https://server.ecoleta.marconwillian.dev/
-  
+  Ele foi publicado em como produção: https://server-ecoleta.marconwillian.dev/.<br>
+  Sua versão em develop é publicado em outra porta: https://server-ecoleta.marconwillian.dev:8080/
+
   ****
   Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE][license-link] para mais detalhes.
 
