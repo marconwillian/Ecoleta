@@ -196,14 +196,16 @@ const CreatePoint = () => {
                     <legend>
                         <h2>Dados</h2>
                     </legend>
-                    <div className="field">
-                        <label htmlFor="name">Nome da entidade</label>
-                        <input 
-                            type="text" 
-                            name="name" 
-                            value={formData.name}
-                            onChange={handleInputChange}
-                        />
+                    <div className="field-group">
+                        <div className="field">
+                            <label htmlFor="name">Nome da entidade</label>
+                            <input 
+                                type="text" 
+                                name="name" 
+                                value={formData.name}
+                                onChange={handleInputChange}
+                            />
+                        </div>
                     </div>
                     <div className="field-group">
                         <div className="field">
