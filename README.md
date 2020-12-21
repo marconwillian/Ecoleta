@@ -34,7 +34,7 @@
 
 
   <!-- Markdown link & img dfn's -->
-  [logo-image]: /assets/green.png
+  [logo-image]: /assets/green-readme.png
   [license-image]: https://img.shields.io/badge/License-MIT-yellow.svg
   [license-link]: https://github.com/marconwillian/Ecoleta_backend/blob/master/LICENSE
   [repo-backend]: /packages/server
