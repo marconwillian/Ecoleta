@@ -29,8 +29,9 @@
     
 
   ## :minidisc: Descrição
-  Ele foi publicado em: https://server.ecoleta.marconwillian.dev/
-  
+  Ele foi publicado em como produção: https://server-ecoleta.marconwillian.dev/.<br>
+  Sua versão em develop é publicado em outra porta: https://server-ecoleta.marconwillian.dev:8080/
+
   ****
   Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE][license-link] para mais detalhes.
 

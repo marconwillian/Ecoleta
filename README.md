@@ -24,8 +24,10 @@
   ## :minidisc: Descrição
   O projeo em si é um sistema de coleta de lixos e descartaveis, unindo as empresas que fazem estas coletas com as pessoas que precisa descartar algo, sendo que a empresa vai usar a langing page para cadastrar seus pontos, e o usuário vai poder ver os pontos pelo app.
 
-  - O backend: https://server.ecoleta.marconwillian.dev/
-  - O frontend: https://ecoleta.marconwillian.dev/
+  - Backend: https://server-ecoleta.marconwillian.dev/
+  - Backend Develop: https://server-ecoleta.marconwillian.dev:8080/
+  - Frontend: https://ecoleta.marconwillian.dev/
+  - Frontend Develop: https://develop-ecoleta.marconwillian.dev/
   
   ****
   Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE][license-link] para mais detalhes.
