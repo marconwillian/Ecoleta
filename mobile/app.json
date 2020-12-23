@@ -3,33 +3,33 @@
     "name": "Ecoleta",
     "slug": "ecoleta",
     "platforms": [
-      "ios",
-      "android",
-      "web"
+        "ios",
+        "android",
+        "web"
     ],
-    "version": "1.0.5",
+    "version": "1.0.8",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#34cb79",
-      "userInterfaceStyle": "light"
+        "image": "./assets/splash.png",
+        "resizeMode": "contain",
+        "backgroundColor": "#ffffff",
+        "userInterfaceStyle": "light"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+        "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
-      "**/*"
+        "**/*"
     ],
     "android": {
-      "package": "dev.mh4sh.ecoleta",
-      "versionCode": 6,
-      "config": {
-        "googleMaps": {
-          "apiKey": "AIzaSyAChFwGtRrkhieprwxQzGgjidGLhsFE-U4"
+        "package": "dev.mh4sh.ecoleta",
+        "versionCode": 8,
+        "config": {
+            "googleMaps": {
+                "apiKey": "AIzaSyAChFwGtRrkhieprwxQzGgjidGLhsFE-U4"
+            }
         }
-      }
     }
   }
 }
