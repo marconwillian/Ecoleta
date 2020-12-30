@@ -10,12 +10,14 @@
     "knex:migrateknex:migrate": "npx knex --env production --knexfile ./src/config/knexfile.ts migrate:latest",
     "build": "tsc",
     "start": "npm run serve",
-    "serve": "node src/server.js"
+    "serve": "node dist/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@sentry/node": "^5.29.2",
+    "@sentry/tracing": "^5.29.2",
     "@types/hapi__joi": "^17.1.2",
     "@types/multer": "^1.4.3",
     "@types/multer-s3": "^2.7.8",

@@ -15,7 +15,7 @@ const s3 = new AWS.S3();
 export default {
     storage: multerS3({
         s3: s3,
-        bucket: 'marconwillian.dev',
+        bucket: process.env.AWS_BUCKET || '',
         acl: 'public-read',
         key: function (req, file, cb) {
             const hash = crypto.randomBytes(16).toString('hex');
