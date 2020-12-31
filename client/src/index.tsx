@@ -8,6 +8,7 @@ import { Integrations } from "@sentry/tracing";
 Sentry.init({
   dsn: "https://9dde3ff64f09465ea530ae4a031e087b@o497854.ingest.sentry.io/5574623",
   autoSessionTracking: true,
+  release: `ecoleta_client@${process.env.npm_package_version}`,
   integrations: [
     new Integrations.BrowserTracing(),
   ],
