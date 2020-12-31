@@ -8,7 +8,7 @@ class ItemsController {
 
         const transaction = Sentry.startTransaction({
           op: "item_index",
-          name: "List itens and yours images.",
+          name: "List itens and yours images",
         });
 
         try {
