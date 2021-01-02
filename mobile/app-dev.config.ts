@@ -9,7 +9,7 @@ export default {
             "android",
             "web"
         ],
-        version: "1.0.7-dev",
+        version: "1.0.10-dev",
         orientation: "portrait",
         icon: "./assets/icon-development.png",
         splash: {
@@ -25,7 +25,7 @@ export default {
         ],
         android: {
             package: "dev.mh4sh.ecoleta.develop",
-            versionCode: 7,
+            versionCode: 10,
             config: {
                 googleMaps: {
                     apiKey: process.env.MAPS_API_KEY

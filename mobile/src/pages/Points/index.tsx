@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, SafeAreaView, Alert} from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, SafeAreaView, Alert, ActivityIndicator} from 'react-native';
 import { Feather as Icon} from '@expo/vector-icons';
 import Emoji from 'react-native-emoji';
 import { useNavigation, useRoute } from '@react-navigation/native';
@@ -30,6 +30,8 @@ interface Params {
 }
 
 const Points = () => {
+  const [loadedMaps, setLoadedMaps] = useState<Boolean>(false);
+
   const [items, setItems] = useState<Item[]>([]);
   const [points, setPoints] = useState<Points[]>([]);
   const [selectedItems, setSelectedItems] = useState<number[]>([]);
@@ -41,25 +43,26 @@ const Points = () => {
 
   const navigation = useNavigation();
 
+
+
   useEffect(() => {
     async function loadPosition() {
       const { status } = await Location.requestPermissionsAsync();
-
+  
       if(status !== 'granted'){
         Alert.alert('Oooops...', 'Precisamos de sua permissão para obter a localização');
         return;
       }
-
+  
       const location = await Location.getCurrentPositionAsync();
-
+  
       const { latitude, longitude} = location.coords;
-
+  
       setInitialPosition([
         latitude, 
         longitude
       ])
     }
-
     loadPosition();
   }, [])
 
@@ -119,7 +122,7 @@ const Points = () => {
         <Text style={styles.description}>Encontre no mapa um ponto de coleta.</Text>
 
         <View style={styles.mapContainer}>
-          { initialPosition[0] !== 0 && (
+          { initialPosition[0] !== 0 ? (
             <MapView 
             style={styles.map}
             initialRegion={{
@@ -145,7 +148,11 @@ const Points = () => {
               </Marker>
               ))}
             </MapView>
-          ) }
+          )  : (
+              <View style={styles.mapContainerLoading}>
+                <ActivityIndicator size="large" color="#34CB79" />
+              </View>
+          )}
         </View>
       </View>
       
@@ -204,7 +211,10 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     marginTop: 16,
   },
-
+  mapContainerLoading: {
+    flex: 1,
+    justifyContent: 'center',
+  },
   map: {
     width: '100%',
     height: '100%',
