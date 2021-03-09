@@ -11,7 +11,7 @@ class PointsController {
     async index(request: Request, response: Response){
         const transaction = Sentry.startTransaction({
             op: "point_index",
-            name: "List points and yours images with filters.",
+            name: "List points and yours images with filters",
         });
 
         const {city, uf, items} = request.query;
@@ -89,7 +89,7 @@ class PointsController {
     async create(request: RequestUpload | Request, response: Response){
         const transaction = Sentry.startTransaction({
             op: "point_create",
-            name: "Create a new point.",
+            name: "Create a new point",
         });
         
         const {
@@ -151,7 +151,7 @@ class PointsController {
     async states(request: Request, response: Response){
         const transaction = Sentry.startTransaction({
             op: "point_states",
-            name: "List states actives.",
+            name: "List states actives",
         });
 
         try {
@@ -168,7 +168,7 @@ class PointsController {
     async cities(request: Request, response: Response){
         const transaction = Sentry.startTransaction({
             op: "point_cities",
-            name: "List cities actives.",
+            name: "List cities actives",
         });
 
         const { _uf } = request.params;

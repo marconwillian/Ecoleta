@@ -10,9 +10,10 @@ import { Ubuntu_700Bold, useFonts } from '@expo-google-fonts/ubuntu';
 import Routes from './src/routes';
 
 Sentry.init({
-    dsn: "https://7697f090eb6842e6bcb8a2d140a3e55b@o497854.ingest.sentry.io/5574595",
-    enableInExpoDevelopment: true,
-    debug: true,
+  dsn: "https://7697f090eb6842e6bcb8a2d140a3e55b@o497854.ingest.sentry.io/5574595",
+  enableInExpoDevelopment: true,
+  release: `ecoleta_mobile@${process.env.npm_package_version}`,
+  debug: true,
 });
 
 
