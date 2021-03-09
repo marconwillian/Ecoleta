@@ -1,4 +1,4 @@
-import Knex from 'knex';
+import { Knex } from 'knex';
 
 export async function up(knek: Knex) {
     return knek.schema.createTable('point_items', table => {

@@ -1,6 +1,5 @@
 import path from 'path';
-import dotenv from 'dotenv';
-dotenv.config();
+import 'dotenv/config';
 
 export default  {
     development: {
