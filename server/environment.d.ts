@@ -5,6 +5,8 @@ declare global {
             PORT?: string;
             PWD: string;
             HASH_1_SECRET: string;
+            npm_package_version: string;
+
             DB_HOST: string;
             DB_DATABASE: string;
             DB_USER: string;
@@ -17,7 +19,8 @@ declare global {
             AWS_SECRET_ACCESS_KEY: string;
             AWS_ACCESS_KEY_ID: string;
             AWS_END_POINT: string;
-            
+
+            SENTRY_DNS: string;
         }
     }
 }
