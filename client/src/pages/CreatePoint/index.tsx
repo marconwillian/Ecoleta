@@ -132,7 +132,7 @@ const CreatePoint = () => {
         newPhone = `(${numberOnly.substring(0,2)}) ${numberOnly.substring(2,7)}-${numberOnly.substring(7,11)}`;
       }
 
-      setFormData({...formData, ['whatsapp']: newPhone.replace(/\D/gim, ''), ['whatsappFormatted']: newPhone})
+      setFormData({...formData, whatsapp: newPhone.replace(/\D/gim, ''), whatsappFormatted: newPhone})
     }
 
     function handleSelectItem(id: number){
