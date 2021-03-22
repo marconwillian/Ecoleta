@@ -1,5 +1,5 @@
 import knex from 'knex';
-import knexConfig from '../config/knexfileConnection';
+import knexConfig from '../config/knexConfig';
 let config: Object = {};
 
 config = knexConfig[process.env.NODE_ENV || 'production'];
