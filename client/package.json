@@ -1,6 +1,6 @@
 {
   "name": "@ecoleta/client",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "private": true,
   "dependencies": {
     "@sentry/react": "^6.2.3",
