@@ -2,7 +2,7 @@ import React, {useEffect, useState, ChangeEvent, FormEvent} from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import {FiArrowLeft} from 'react-icons/fi';
 import {LeafletMouseEvent} from 'leaflet';
-import {Map, TileLayer, Marker} from 'react-leaflet';
+import {Map, Popup, TileLayer, Marker} from 'react-leaflet';
 import axios from 'axios';
 import api from '../../services/api';
 
@@ -234,14 +234,17 @@ const CreatePoint = () => {
                         <span>Selecione o endereço no mapa</span>
                     </legend>
 
-                    <Map center={initialPosition} zoom={15} onClick={handleMapClick}>
-                        <TileLayer
-                            attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                        />
-                        <Marker position={selectedPosition || initialPosition} />
+                    <Map center={initialPosition} zoom={13} onClick={handleMapClick}>
+                      <TileLayer
+                        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                      />
+                      <Marker position={selectedPosition || initialPosition}>
+                        <Popup>
+                          A pretty CSS3 popup. <br /> Easily customizable.
+                        </Popup>
+                      </Marker>
                     </Map>
-
                     <div className="field-group">
                         <div className="field">
                             <label htmlFor="uf">Estado (UF)</label>
