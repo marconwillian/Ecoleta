@@ -3525,10 +3525,10 @@ expo-constants@^9.3.5, expo-constants@~9.3.3:
     fbjs "1.0.0"
     uuid "^3.3.2"
 
-expo-constants@~10.0.1:
-  version "10.0.1"
-  resolved "https://registry.yarnpkg.com/expo-constants/-/expo-constants-10.0.1.tgz#a6cf6998c70ef6e1772a7c4096723482194c5828"
-  integrity sha512-SnMIX1PnTz3AgGcFd+paCb8Ur0WfEiBjEZ7TxCdwpk7XVQO4etCzn6auNutCd4PBc4YVNvmKF9e0WFgLxy4NRQ==
+expo-constants@~10.1.0:
+  version "10.1.1"
+  resolved "https://registry.yarnpkg.com/expo-constants/-/expo-constants-10.1.1.tgz#1cdf8c23c63bc3923da199d608037ae845361dd9"
+  integrity sha512-sj8NgtJ97hh8HempI1z9Eo2nYFPV2PdjmmflvZLUBKbxqU4k+9+FiE6aTKNb23LsdbadZu2D/hzXT0pDub/GdQ==
   dependencies:
     "@expo/config" "^3.3.18"
     uuid "^3.3.2"
