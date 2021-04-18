@@ -137,6 +137,7 @@ export default function CreatePoint({ items, ufs, googleMapKey, endPointApi }: C
     lat: number,
     lng: number
   }) {
+    console.log({ lat, lng })
     setSelectedPosition({ lat, lng });
   }
 
