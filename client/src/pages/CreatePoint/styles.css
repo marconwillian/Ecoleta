@@ -71,58 +71,7 @@
   display: flex;
 }
 
-#page-create-point form .field {
-  flex: 1;
-
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 24px;
-  width: calc(50% - 12px)
-}
-
-#page-create-point form .field input[type=text],
-#page-create-point form .field input[type=email],
-#page-create-point form .field input[type=number] {
-  flex: 1;
-  background: #F0F0F5;
-  border-radius: 8px;
-  border: 0;
-  padding: 16px 24px;
-  font-size: 16px;
-  color: #6C6C80;
-}
-
-#page-create-point form .field select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  flex: 1;
-  background: #F0F0F5;
-  border-radius: 8px;
-  border: 0;
-  padding: 16px 24px;
-  font-size: 16px;
-  color: #6C6C80;
-}
-
-#page-create-point form .field input::placeholder {
-  color: #A0A0B2;
-}
-
-#page-create-point form .field label {
-  font-size: 14px;
-  margin-bottom: 8px;
-}
-
-#page-create-point form .field :disabled {
-  cursor: not-allowed;
-}
-
-#page-create-point form .field-group .field + .field {
-  margin-left: 24px;
-}
-
-#page-create-point form .field-group input + input {
+#page-create-point form .field-group input + input, #page-create-point form .field-group div + div {
   margin-left: 24px;
 }
 
@@ -133,16 +82,8 @@
         flex: 1;
         display: block;
     }
-
-    #page-create-point form .field {
-        width: 100%;
-    }
-
-    #page-create-point form .field-group .field + .field {
-        margin-left: 0px;
-    }
     
-    #page-create-point form .field-group input + input {
+    #page-create-point form .field-group input + input, #page-create-point form .field-group div + div {
         margin-left: 0px;
     }
       
@@ -186,6 +127,11 @@
 
 #page-create-point form button:hover {
   background: #2FB86E;
+}
+
+#page-create-point form button:disabled {
+  background: #a1d3b8;
+  cursor: wait;
 }
 
 .items-grid {
