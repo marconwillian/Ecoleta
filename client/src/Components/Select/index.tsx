@@ -1,4 +1,5 @@
 import React, { forwardRef, ForwardRefRenderFunction } from 'react';
+import BeatLoader from 'react-spinners/BeatLoader';
 
 import './styles.css';
 
@@ -12,6 +13,18 @@ interface SelectProps extends React.DetailedHTMLProps<React.SelectHTMLAttributes
 
 export const SelectBase: ForwardRefRenderFunction<HTMLSelectElement, SelectProps> = 
   ({ isLoading = false, label, placeholder, name, children, ...rest }, ref) => {
+
+  if(isLoading){
+    return (
+      <div className="field-select">
+        { label && <label htmlFor={name}>{label}</label> }
+        <div className="loading">
+          <BeatLoader color="#6C6C80" loading={true} size={10} />
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="field-select">
         { label && <label htmlFor={name}>{label}</label> }
@@ -22,7 +35,6 @@ export const SelectBase: ForwardRefRenderFunction<HTMLSelectElement, SelectProps
             {...rest}
         >
           { placeholder && <option value="" disabled hidden>{placeholder}</option> }
-          <option value="loading" selected={isLoading} disabled hidden>Carregando...</option>
           { children }
         </select>
     </div>

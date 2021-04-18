@@ -130,7 +130,7 @@
 }
 
 #page-create-point form button:disabled {
-  background: #a1d3b8;
+  background: #289e5f;
   cursor: wait;
 }
 
