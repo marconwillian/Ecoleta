@@ -37,9 +37,9 @@
   [logo-image]: /assets/green-readme.png
   [license-image]: https://img.shields.io/badge/License-MIT-yellow.svg
   [license-link]: https://github.com/marconwillian/Ecoleta_backend/blob/master/LICENSE
-  [repo-backend]: /packages/server
-  [repo-frontend]: /packages/client
-  [repo-mobile]: /packages/mobile
+  [repo-backend]: /server
+  [repo-frontend]: /client
+  [repo-mobile]: /mobile
   [npm-react]: https://www.npmjs.com/package/react
   [npm-express]: https://www.npmjs.com/package/express
   [npm-knex]: https://www.npmjs.com/package/knex
