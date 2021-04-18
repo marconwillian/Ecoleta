@@ -25,6 +25,7 @@ export default class MyDocument extends Document {
 
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
+          <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9ddc72bd55c345c884bced46ad9af946"}' />
         </Head>
         <body>
           <Main />
