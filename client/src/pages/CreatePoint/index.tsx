@@ -141,15 +141,17 @@ const CreatePoint = () => {
       setSelectedItems([...selectedItems, id]);
     }
   }
+  console.log(errors);
 
   const handleCreatePoint: SubmitHandler<CreatePointFormData> = async (values) => {
-    console.log(errors, values);
-
-    await new Promise(resolve => {setInterval(resolve, 15000)});
-
     const { name, email, whatsapp, uf, city } = values;
     const [latitude, longitude] = selectedPosition;
     const items = selectedItems;
+
+    if(!items){
+      alert('Selecione algum ítem de coleta!')
+      return ;
+    }
 
     const data = new FormData();
 
@@ -196,6 +198,7 @@ const CreatePoint = () => {
             <Input
               label="Nome da entidade"
               type="text"
+              error={errors?.name}
               {
               ...register("name")
               }
@@ -205,6 +208,7 @@ const CreatePoint = () => {
             <Input
               label="Email"
               type="email"
+              error={errors?.email}
               {
               ...register("email")
               }
@@ -212,6 +216,7 @@ const CreatePoint = () => {
             <Input
               label="Whatsapp"
               type="email"
+              error={errors?.whatsapp}
               {
               ...register("whatsapp")
               }
@@ -255,6 +260,7 @@ const CreatePoint = () => {
               label="Cidade"
               placeholder="Selecione uma Cidade"
               isLoading={isLoadingCity}
+              error={errors?.city}
               {
               ...register("city")
               }
