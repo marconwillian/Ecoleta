@@ -1,6 +1,6 @@
 import React, { forwardRef, ForwardRefRenderFunction } from 'react';
 
-import './styles.css';
+import styles from './Input.module.scss';
 
 interface InputProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
   label?: string;
@@ -13,10 +13,10 @@ interface InputProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<H
 export const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = 
 ({ label, type, name, error, ...rest }, ref) => {
   return (
-    <div className="field-input">
+    <div className={styles.field_input}>
         {label && <label htmlFor={name}>{label}</label>}
         <input 
-          className={error && 'error'}
+          className={error && styles.error}
           type={type}
           name={name}
           ref={ref}

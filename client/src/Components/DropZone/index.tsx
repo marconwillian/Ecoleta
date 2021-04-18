@@ -2,13 +2,13 @@ import React, { useCallback, useState} from 'react';
 import {useDropzone} from 'react-dropzone';
 import {FiUpload} from 'react-icons/fi';
 
-import './styles.css';
+import styles from './DropZone.module.scss';
 
 interface Props {
     onFileUploaded(file: File): void;
 }
 
-const DropZone: React.FC<Props> = ({onFileUploaded}) => {
+export const DropZone: React.FC<Props> = ({onFileUploaded}) => {
     const [selectedFileUrl, setSelectedFileUrl] = useState('');
     
     const onDrop = useCallback(acceptedFiles => {
@@ -25,7 +25,7 @@ const DropZone: React.FC<Props> = ({onFileUploaded}) => {
     });
 
     return (
-        <div className="dropzone" {...getRootProps()}>
+        <div className={styles.dropzone} {...getRootProps()}>
             <input {...getInputProps()} accept="image/*"/>
             {
                 selectedFileUrl ?
@@ -40,5 +40,3 @@ const DropZone: React.FC<Props> = ({onFileUploaded}) => {
         </div>
     )
 }
-
-export default DropZone;
