@@ -6,15 +6,12 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { LeafletMouseEvent } from 'leaflet';
-
 import { useRouter } from 'next/router'
 
 import { FiArrowLeft } from "react-icons/fi";
 import BeatLoader from "react-spinners/BeatLoader";
 
 import axios from "axios";
-import api from "../../services/api";
 
 import { Select } from "../../Components/Select";
 import { Input } from "../../Components/Input";
@@ -29,6 +26,8 @@ const Map = dynamic(
 );
 
 import styles from './createPoint.module.scss';
+import { GetStaticProps } from "next";
+import { string } from "yup/lib/locale";
 
 interface Item {
   id: number;
@@ -57,6 +56,12 @@ interface CreatePointFormData {
   city: string;
 }
 
+interface Location {
+  lat: number;
+  lng: number;
+}
+
+
 const createPointFormSchema = Yup.object().shape({
   name: Yup.string().required('Nome obrigatório'),
   email: Yup.string().required('E-mail obrigatório').email('E-mail inválido'),
@@ -65,23 +70,31 @@ const createPointFormSchema = Yup.object().shape({
   city: Yup.string().required('Cidade obrigatória')
 })
 
-export default function CreatePoint(){
+
+interface CreatePointProps {
+  items: Item[];
+  ufs: Uf[];
+  endPointApi: string;
+  googleMapKey: string;
+}
+
+export default function CreatePoint({ items, ufs, googleMapKey, endPointApi }: CreatePointProps){
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(createPointFormSchema)
   });
 
+  console.log(process.env.KEY_GOOGLE_MAPS);
+
   const { errors } = formState;
 
-  const [items, setItems] = useState<Item[]>([]);
-  const [ufs, setUfs] = useState<Uf[]>([]);
   const [cities, setCities] = useState<string[]>([]);
 
-  const [initialPosition, setInitialPosition] = useState<[number, number]>([0, 0]);
+  const [initialPosition, setInitialPosition] = useState<Location>({lat: 0, lng: 0});
 
   const [selectedUf, setSelectedUf] = useState<string>('');
   const [isLoadingCity, setIsLoadingCity] = useState<boolean>(false);
   const [selectedItems, setSelectedItems] = useState<number[]>([]);
-  const [selectedPosition, setSelectedPosition] = useState<[number, number]>([0, 0]);
+  const [selectedPosition, setSelectedPosition] = useState<Location>({lat: 0, lng: 0});
   const [selectedFile, setSelectedFile] = useState<File>();
 
   const router = useRouter();
@@ -90,28 +103,9 @@ export default function CreatePoint(){
     navigator.geolocation.getCurrentPosition(position => {
       const { latitude, longitude } = position.coords;
 
-      setInitialPosition([latitude, longitude]);
-      setSelectedPosition([latitude, longitude]);
+      setInitialPosition({lat: latitude, lng: longitude});;
+      setSelectedPosition({lat: latitude, lng: longitude});
     })
-  }, [])
-
-  useEffect(() => {
-    api.get('items').then(response => {
-      setItems(response.data);
-    })
-  }, [])
-
-  useEffect(() => {
-    axios.get<UfIBGEResponse[]>('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
-      .then(response => {
-        const ufInitials = response.data.map(uf => {
-          return {
-            fullName: uf.nome,
-            name: uf.sigla
-          }
-        })
-        setUfs(ufInitials);
-      })
   }, [])
 
   useEffect(() => {
@@ -136,8 +130,14 @@ export default function CreatePoint(){
     setSelectedUf(uf);
   }
 
-  function handleMapClick(event: LeafletMouseEvent) {
-    setSelectedPosition([event.latlng.lat, event.latlng.lng]);
+  function handleMapClick({
+    lat,
+    lng
+  }: {
+    lat: number,
+    lng: number
+  }) {
+    setSelectedPosition({ lat, lng });
   }
 
   function handleSelectItem(id: number) {
@@ -150,11 +150,10 @@ export default function CreatePoint(){
       setSelectedItems([...selectedItems, id]);
     }
   }
-  console.log(errors);
 
   const handleCreatePoint: SubmitHandler<CreatePointFormData> = async (values) => {
     const { name, email, whatsapp, uf, city } = values;
-    const [latitude, longitude] = selectedPosition;
+    const { lat: latitude, lng: longitude } = selectedPosition;
     const items = selectedItems;
 
     if(!items){
@@ -176,8 +175,8 @@ export default function CreatePoint(){
     if(selectedFile) {
         data.append('image', selectedFile);
     }
-
-    await api.post('points', data);
+    
+    await axios.post(`${endPointApi}/points`, data);
 
     alert('Ponto de coleta criado!');
     router.push('/');
@@ -242,10 +241,11 @@ export default function CreatePoint(){
             <h2>Endereço</h2>
             <span>Selecione o endereço no mapa</span>
           </legend>
-          <Map 
+          <Map
             initialPosition={initialPosition}
             selectedPosition={selectedPosition}
             handleMapClick={handleMapClick}
+            keyMap={googleMapKey}
           />
           <div className={styles.field_group}>
             <Select
@@ -311,4 +311,28 @@ export default function CreatePoint(){
       </form>
     </div>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => { 
+  const endPointApi = process.env.ENDPOINT_API;
+  const { data: items } = await axios.get<Item[]>(`${endPointApi}/items`);
+
+  const { data: ufs } = await axios.get<UfIBGEResponse[]>('https://servicodados.ibge.gov.br/api/v1/localidades/estados');
+
+  const ufInitials = ufs.map(uf => {
+    return {
+      fullName: uf.nome,
+      name: uf.sigla
+    }
+  })
+
+  return {
+    props: {
+      items,
+      ufs: ufInitials,
+      endPointApi,
+      googleMapKey: process.env.KEY_GOOGLE_MAPS,
+    },
+    revalidate: ( 60 * 60 * 24 ), // 1 hours 
+  }
 }
