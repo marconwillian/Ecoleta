@@ -3602,10 +3602,10 @@ expo-location@~11.0.0:
   dependencies:
     "@expo/config-plugins" "~1.0.13"
 
-expo-mail-composer@~10.0.0:
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/expo-mail-composer/-/expo-mail-composer-10.0.0.tgz#3b29b0762cbbc8c979c428115a0aa003c2aee449"
-  integrity sha512-T0Y1Cps6g6icAi/SUux85YAJQRjtWtYhI2aIuyHc/VvAthoPPbcqcH4OmgzfR8FuMLu8YW8gtT2Sgd20MIRavw==
+expo-mail-composer@~10.1.2:
+  version "10.1.2"
+  resolved "https://registry.yarnpkg.com/expo-mail-composer/-/expo-mail-composer-10.1.2.tgz#1b3f29f08e1c59c605e9c2136a561b732de12f07"
+  integrity sha512-G9Wvl6S8ZB+tU1p5bS/Qx3O1hmv8R6HRjmrbCMxaTvnHGiQ1L8MuuAvoC7uynip5npw86JXd/BNQ6LMiQtRyzw==
   dependencies:
     query-string "^6.2.0"
 
