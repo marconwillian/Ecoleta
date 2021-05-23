@@ -29,11 +29,12 @@ interface Location {
 
 const RegularMap = withScriptjs(
   withGoogleMap(
-    ({initialPosition = defaultCenter, selectedPosition = defaultCenter, handleMapClick}: RegularMapProps) => {
+    ({initialPosition, selectedPosition = defaultCenter, handleMapClick}: RegularMapProps) => {
     return (
       <GoogleMap
         defaultZoom={15}
         defaultCenter={initialPosition}
+        center={initialPosition}
         defaultOptions={{ 
           scrollwheel: true,
         }}
@@ -44,7 +45,7 @@ const RegularMap = withScriptjs(
           })
         }}
       >
-        <Marker position={ selectedPosition } />
+        <Marker position={ selectedPosition || initialPosition } />
       </GoogleMap>
     )
   }
