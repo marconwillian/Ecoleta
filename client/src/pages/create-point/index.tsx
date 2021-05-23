@@ -83,8 +83,6 @@ export default function CreatePoint({ items, ufs, googleMapKey, endPointApi }: C
     resolver: yupResolver(createPointFormSchema)
   });
 
-  console.log(process.env.KEY_GOOGLE_MAPS);
-
   const { errors } = formState;
 
   const [cities, setCities] = useState<string[]>([]);
