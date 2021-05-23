@@ -39,7 +39,7 @@ app.use(express.json());
  * Rquest Body: Parametro para atualização/criação de informação
  */
 
-app.use(routes);
+ routes(app);
 
 app.use(errors());
 app.use((request, response) => {
