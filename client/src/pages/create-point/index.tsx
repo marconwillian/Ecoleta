@@ -87,12 +87,12 @@ export default function CreatePoint({ items, ufs, googleMapKey, endPointApi }: C
 
   const [cities, setCities] = useState<string[]>([]);
 
-  const [initialPosition, setInitialPosition] = useState<Location>({lat: 0, lng: 0});
+  const [initialPosition, setInitialPosition] = useState<Location>({lat: -15.79, lng: -47.87});
 
   const [selectedUf, setSelectedUf] = useState<string>('');
   const [isLoadingCity, setIsLoadingCity] = useState<boolean>(false);
   const [selectedItems, setSelectedItems] = useState<number[]>([]);
-  const [selectedPosition, setSelectedPosition] = useState<Location>({lat: 0, lng: 0});
+  const [selectedPosition, setSelectedPosition] = useState<Location>({lat: -15.79, lng: -47.87});
   const [selectedFile, setSelectedFile] = useState<File>();
 
   const router = useRouter();
@@ -135,7 +135,6 @@ export default function CreatePoint({ items, ufs, googleMapKey, endPointApi }: C
     lat: number,
     lng: number
   }) {
-    console.log({ lat, lng })
     setSelectedPosition({ lat, lng });
   }
 

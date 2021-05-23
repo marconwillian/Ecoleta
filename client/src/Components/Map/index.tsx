@@ -34,6 +34,7 @@ const RegularMap = withScriptjs(
       <GoogleMap
         defaultZoom={15}
         defaultCenter={initialPosition}
+        center={initialPosition}
         defaultOptions={{ 
           scrollwheel: true,
         }}
@@ -44,7 +45,7 @@ const RegularMap = withScriptjs(
           })
         }}
       >
-        <Marker position={ initialPosition || selectedPosition } />
+        <Marker position={ selectedPosition || initialPosition } />
       </GoogleMap>
     )
   }
